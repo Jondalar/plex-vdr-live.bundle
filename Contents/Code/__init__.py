@@ -103,7 +103,7 @@ def DisplayGroupChannels(name):
 
 ####################################################################################################
 @route("/video/vdr/LiveTVMenu")
-def LiveTVMenu(sender, channel, thumb, include_oc=False):
+def LiveTVMenu(sender, channel, thumb, include_oc=False, checkFiles = 0, includeBandwidths = 0, includeExtras = 0, offset = 0):
 
 	stream = STREAM_URL % (Prefs['host'], Prefs['port'], Prefs['stream'],channel)
 	Log("Stream reached ======")
@@ -178,5 +178,4 @@ def LiveTVMenu(sender, channel, thumb, include_oc=False):
 
 	if include_oc:
 		return ObjectContainer(objects=[video])
-
 	return video
